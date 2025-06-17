@@ -94,7 +94,7 @@ const skills = [
       "Natural Language Processing (NLP)",
       "RLHF",
       "RAG",
-      "LLM Fine-tuning",
+      "LLM Fine-tuning"
     ]
   },
   {
