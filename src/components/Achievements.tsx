@@ -46,12 +46,6 @@ const AchievementTitle = styled.h3`
   margin: 0;
 `;
 
-const AchievementDescription = styled.p`
-  color: #ffffff;
-  margin: 0;
-  line-height: 1.6;
-`;
-
 const AchievementList = styled.ul`
   list-style: none;
   padding: 0;
@@ -89,8 +83,7 @@ const achievements = [
     items: [
       "Student Representative - Anti-Ragging Committee, Thapar Institute of Engineering and Technology (Jan 2024 – Jan 2025)",
       "Promoted campus safety and inclusivity by organizing awareness campaigns",
-      "Collaborated with administration to assess and improve student well-being policies",
-     
+      "Collaborated with administration to assess and improve student well-being policies"
     ]
   }
 ];
