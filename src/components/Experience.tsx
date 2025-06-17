@@ -100,10 +100,11 @@ const experiences = [
     duration: "Apr 2025 – Present",
     logo: "/images/companies/outlier.png",
     achievements: [
-      "RLHF projects with 30%+ improvement in model alignment",
-      "Created 2,000+ coding prompts in Python, JavaScript, SQL",
-      "Improved LLM evaluation coverage by 50%"
-    ]
+      "Contributed to Reinforcement Learning from Human Feedback (RLHF) projects, improving model output alignment and relevance by over 30% through fine-tuning strategies",
+      "Crafted 2,000+ human-like coding prompts to boost model comprehension and generation across Python, JavaScript, and SQL domains",
+      "Collaborated with prompt engineers to increase LLM evaluation coverage by 50%, driving improvements in reasoning and contextual accuracy"
+    ],
+    skills: ["RLHF", "Prompt Engineering", "LLM Evaluation", "Python", "JavaScript", "SQL"]
   },
   {
     role: "Cybersecurity Intern",
@@ -111,9 +112,11 @@ const experiences = [
     duration: "Jan 2025 – Present",
     logo: "/images/companies/kyndleit.png",
     achievements: [
-      "Configured Symantec Messaging Gateway (SMG), reduced false positives by 25%",
-      "Monitored and Triaged 500+ alerts, supported 10+ enterprise clients"
-    ]
+      "Configured and optimized Symantec Messaging Gateway (SMG), reducing false positives by 25% and enhancing phishing detection rates",
+      "Monitored and triaged over 500 real-time security alerts, ensuring proactive response to malware & phishing",
+      "Provided support to 10+ enterprise clients, improving security by adjusting SMG settings"
+    ],
+    skills: ["SMG", "Cybersecurity", "Email Security", "Alert Monitoring", "Threat Detection", "Client Support"]
   }
 ];
 
@@ -159,6 +162,10 @@ const Experience = () => {
                 <Achievement key={i}>{achievement}</Achievement>
               ))}
             </ul>
+            <div style={{ marginTop: '1rem' }}>
+              <strong style={{ color: '#4facfe' }}>Skills: </strong>
+              <span style={{ color: '#ffffff' }}>{exp.skills.join(', ')}</span>
+            </div>
           </ExperienceCard>
         ))}
       </ExperienceGrid>
