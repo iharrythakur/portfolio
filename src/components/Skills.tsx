@@ -1,6 +1,3 @@
-import { useRef } from 'react';
-import { useFrame } from '@react-three/fiber';
-import { Sphere, Text } from '@react-three/drei';
 import styled from '@emotion/styled';
 import { motion } from 'framer-motion';
 
@@ -20,11 +17,12 @@ const SectionTitle = styled(motion.h2)`
 `;
 
 const SkillsGrid = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
+  padding: 2rem 0;
 `;
 
 const SkillCategory = styled(motion.div)`
@@ -38,56 +36,77 @@ const SkillCategory = styled(motion.div)`
 const CategoryTitle = styled.h3`
   font-size: 1.5rem;
   color: #4facfe;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
 `;
 
 const SkillList = styled.ul`
   list-style: none;
   padding: 0;
+  margin: 0;
 `;
 
-const SkillItem = styled.li`
+const SkillItem = styled(motion.li)`
   color: #ffffff;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
   display: flex;
   align-items: center;
+  gap: 0.5rem;
   
   &::before {
     content: '▹';
     color: #4facfe;
-    margin-right: 0.5rem;
   }
 `;
 
-const skills = {
-  languages: ['Python', 'C/C++', 'JavaScript', 'SQL'],
-  frameworks: ['React.js', 'FastAPI', 'Flask', 'LiveKit'],
-  tools: ['Git', 'GitHub', 'Postman', 'ElasticSearch', 'n8n'],
-  AI_ML: ['LLMs', 'Prompt Engineering', 'RLHF', 'RAG', 'NLP'],
-  databases: ['PostgreSQL', 'MySQL', 'Firebase Firestore', 'Redis']
-};
-
-const SkillSphere = () => {
-  const sphereRef = useRef<THREE.Mesh>(null);
-
-  useFrame((state) => {
-    if (sphereRef.current) {
-      sphereRef.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.3) * 0.2;
-      sphereRef.current.rotation.y = Math.cos(state.clock.elapsedTime * 0.3) * 0.2;
-    }
-  });
-
-  return (
-    <Sphere ref={sphereRef} args={[1, 32, 32]}>
-      <meshStandardMaterial
-        color="#4facfe"
-        wireframe
-        transparent
-        opacity={0.2}
-      />
-    </Sphere>
-  );
-};
+const skills = [
+  {
+    category: "Programming",
+    items: [
+      "HTML",
+      "CSS",
+      "C/C++",
+      "Python",
+      "JavaScript",
+      "SQL"
+    ]
+  },
+  {
+    category: "Tools/Frameworks",
+    items: [
+      "Git",
+      "GitHub",
+      "React.js",
+      "LiveKit",
+      "Flask",
+      "FastAPI",
+      "Postman",
+      "ElasticSearch",
+      "n8n",
+      "VAPI"
+    ]
+  },
+  {
+    category: "AI/ML",
+    items: [
+      "Large Language Models (LLMs)",
+      "Prompt Engineering",
+      "Natural Language Processing (NLP)",
+      "RLHF",
+      "RAG",
+      "LLM Fine-tuning",
+    ]
+  },
+  {
+    category: "Databases",
+    items: [
+      "PostgreSQL",
+      "MySQL",
+      "Firebase Firestore",
+      "Redis"
+    ]
+  }
+];
 
 const Skills = () => {
   return (
@@ -102,21 +121,27 @@ const Skills = () => {
       </SectionTitle>
 
       <SkillsGrid>
-        {Object.entries(skills).map(([category, items], index) => (
+        {skills.map((category, index) => (
           <SkillCategory
-            key={category}
+            key={category.category}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: index * 0.1 }}
+            transition={{ duration: 0.8, delay: index * 0.2 }}
             viewport={{ once: true }}
             whileHover={{ scale: 1.02 }}
           >
-            <CategoryTitle>
-              {category.split('_').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
-            </CategoryTitle>
+            <CategoryTitle>{category.category}</CategoryTitle>
             <SkillList>
-              {items.map((skill) => (
-                <SkillItem key={skill}>{skill}</SkillItem>
+              {category.items.map((skill, i) => (
+                <SkillItem
+                  key={skill}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  {skill}
+                </SkillItem>
               ))}
             </SkillList>
           </SkillCategory>
