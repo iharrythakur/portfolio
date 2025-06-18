@@ -90,6 +90,7 @@ const skills = [
   {
     category: "AI/ML",
     items: [
+      "Model Context Protocol(MCP)",
       "Large Language Models (LLMs)",
       "Prompt Engineering",
       "Natural Language Processing (NLP)",
