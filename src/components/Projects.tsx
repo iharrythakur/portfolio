@@ -88,7 +88,7 @@ const TechTag = styled.span`
 
 const projects = [
   {
-    title: "AI Salon",
+    title: "AI Salon Receptionist",
     description: "An intelligent voice receptionist system that handles customer interactions and reduces human intervention through AI-powered automation.",
     achievements: [
       "Handled 50+ simulated and real user sessions with consistent response accuracy above 92%",
