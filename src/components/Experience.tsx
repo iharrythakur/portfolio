@@ -109,7 +109,7 @@ const experiences = [
   {
     role: "Cybersecurity Intern",
     company: "KyndleIT Consulting",
-    duration: "Jan 2025 – Present",
+    duration: "Jan 2025 – Jun 2025",
     logo: "/images/companies/kyndleit.png",
     achievements: [
       "Configured and optimized Symantec Messaging Gateway (SMG), reducing false positives by 25% and enhancing phishing detection rates",
